@@ -30,11 +30,13 @@ class UpdateUserRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.max' => 'El nombre no puede tener más de 255 caracteres.',
-            'email.email' => 'El correo electrónico debe ser una dirección válida.',
-            'email.unique' => 'Este correo electrónico ya está registrado.',
-            'password.min' => 'La contraseña debe tener al menos 8 caracteres.',
-            'password.confirmed' => 'La confirmación de la contraseña no coincide.',
+            'name.required' => __('validation.required', ['attribute' => 'nombre']),
+            'email.required' => __('validation.required', ['attribute' => 'correo electrónico']),
+            'email.email' => __('validation.email', ['attribute' => 'correo electrónico']),
+            'email.unique' => __('validation.unique', ['attribute' => 'correo electrónico']),
+            'password.required' => __('validation.required', ['attribute' => 'contraseña']),
+            'password.min' => __('validation.min.string', ['attribute' => 'contraseña', 'min' => 8]),
+            'password.confirmed' => __('validation.confirmed', ['attribute' => 'contraseña']),
         ];
     }
 }
